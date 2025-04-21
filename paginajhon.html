@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jhon Gutiérrez - Especialista en Data AdTech con experiencia en CDP, DMP, Google Analytics, Power BI y más.">
+    <meta name="keywords" content="AdTech, Data Analytics, CDP, DMP, SQL, Python, Tableau, Power BI, Looker">
+    <title>Jhon Gutiérrez | Especialista en Data AdTech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6a0dad;
+            --secondary-color: #000;
+            --accent-color: #fff;
+            --text-color: #f8f8f8;
+            --text-secondary: #ccc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: var(--accent-color);
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            color: var(--primary-color);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            animation: none;
+            transform: translateY(-3px);
+        }
+        
+        section {
+            padding: 60px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 15px auto;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .skill-category {
+            background-color: rgba(106, 13, 173, 0.1);
+            border-radius: 10px;
+            padding: 25px;
+            flex: 1;
+            min-width: 250px;
+            border: 1px solid rgba(106, 13, 173, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(106, 13, 173, 0.2);
+        }
+        
+        .skill-category h3 {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+        
+        .timeline-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .timeline-text {
+            margin-bottom: 10px;
+        }
+        
+        .timeline-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .timeline-skill {
+            background-color: rgba(106, 13, 173, 0.2);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(106, 13, 173, 0.3);
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-cta {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+
+                <img src="fotoperfil.jpg" alt="Jhon Gutiérrez" class="profilejhongutierrez">
+                <h1>JHON GUTIÉRREZ</h1>
+                <p class="tagline">Especialista en Data AdTech</p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/jhon-gutierrez-83b455127" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/JhonG962" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>+
+                </div>
+                <a href="mailto:jhon.gutierrez@cun.edu.co" class="cta-button">¡Contáctame!</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="container">
+        <h2 class="section-title">PERFIL</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Entusiasta por los datos, tecnología y las audiencias. Apasionado por el marketing y el deporte.</p>
+                <p>Especialista en Data AdTech con experiencia en centralización de datos, creación de dashboards y estrategias basadas en audiencias para mejorar el ROAS.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2 class="section-title">HABILIDADES</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Plataformas de Datos</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>CDP</span>
+                        <span>Avanzado</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>DMP</span>
+                        <span>Avanzado</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>CLEAN ROOM</span>
+                        <span>Avanzado</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Lytics</span>
+                        <span>Intermedio</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Visualización de Datos</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Power BI</span>
+                        <span>Avanzado</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Looker</span>
+                        <span>Avanzado</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Tableau</span>
+                        <span>Avanzado</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Google Analytics</span>
+                        <span>Intermedio</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Programación & Análisis</h3>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>SQL</span>
+                        <span>Intermedio</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Python</span>
+                        <span>Intermedio</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>BigQuery</span>
+                        <span>Intermedio</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Data Fusion</span>
+                        <span>Intermedio</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="container">
+        <h2 class="section-title">EXPERIENCIA LABORAL</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">09/2021 - Presente</div>
+                <h3 class="timeline-title">Data AdTech, EssenceMediacom</h3>
+                <ul class="timeline-text">
+                    <li>Liderar el equipo de datos y tecnología en proyectos de centralización, creación de dashboards y tracking.</li>
+                    <li>Uso de tecnologías de gestión de datos como SQL, BigQuery, Python, Tableau, Power BI, Looker.</li>
+                    <li>Crear estrategias basadas en audiencias para llegar a nuevos públicos y mejorar ROAS.</li>
+                    <li>Recopilar audiencias de datos de primera parte con herramientas como Lytics para uso en campañas.</li>
+                    <li>Implementar DMP para el uso de audiencias en campañas programáticas.</li>
+                    <li>Implementación de Clean Room para almacenar información de clientes y combinar audiencias personalizadas para campañas de remarketing.</li>
+                    <li>Uso de píxeles para recopilar eventos y posterior uso de lookalikes.</li>
+                    <li>Modelos econométricos para el análisis de inversión en cada medio.</li>
+                    <li>Analizar datos en BigQuery para obtener insights valiosos y usar Data Fusion para orquestar datos.</li>
+                    <li>Crear consultas en SQL para responder preguntas de gestión.</li>
+                    <li>Crear dashboards en plataformas como Looker, Datorama y Tableau.</li>
+                    <li>Mejorar campañas digitales con herramientas como píxeles, GA4, Tag Manager.</li>
+                    <li>Liderar procesos con implementación del ecosistema GMP para clientes: Google Ads, DV360.</li>
+                </ul>
+                <div class="timeline-skills">
+                    <span class="timeline-skill">DMP</span>
+                    <span class="timeline-skill">CDP</span>
+                    <span class="timeline-skill">Clean Room</span>
+                    <span class="timeline-skill">Lytics</span>
+                    <span class="timeline-skill">DV360</span>
+                    <span class="timeline-skill">META</span>
+                    <span class="timeline-skill">TIK TOK</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="container">
+        <h2 class="section-title">EDUCACIÓN</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2018</div>
+                <h3 class="timeline-title">International Business, Universidad CUN</h3>
+                <p class="timeline-text">Bogotá, Colombia</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">En progreso</div>
+                <h3 class="timeline-title">Magister in Data Analytics, Universidad Central</h3>
+                <p class="timeline-text">Bogotá, Colombia</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-cta">
+                    <h3>¿Listo para trabajar juntos?</h3>
+                    <a href="mailto:jhon.gutierrez@cun.edu.co" class="cta-button">¡Contáctame!</a>
+                </div>
+                <div class="footer-links">
+                    <a href="https://linkedin.com/in/jhon-gutierrez-83b455127" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/JhonG962" target="_blank">GitHub</a>
+                    <a href="mailto:jhon.gutierrez@cun.edu.co">Email</a>
+                </div>
+                <p class="copyright">© 2023 Jhon Gutiérrez. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animación de scroll para las secciones
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const observerOptions = {
+                threshold: 0.1
+            };
+            
+            const observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Smooth scrolling para enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
